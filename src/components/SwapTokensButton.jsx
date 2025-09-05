@@ -20,13 +20,13 @@ export default function SwapTokensButton({ className, onClick }) {
     return {
       routes: [
         {
-          poolId: process.env.NEXT_PUBLIC_SWAP_POOL_ID || "1",
+          poolId: process.env.NEXT_PUBLIC_SWAP_POOL_ID || "2",
           tokenOutDenom: process.env.NEXT_PUBLIC_SWAP_OUT_DENOM || "tokenB",
         },
       ],
       tokenIn: {
-        denom: process.env.NEXT_PUBLIC_SWAP_IN_DENOM || "stake",
-        amount: process.env.NEXT_PUBLIC_SWAP_IN_AMOUNT || "5000", // base units
+        denom: process.env.NEXT_PUBLIC_SWAP_IN_DENOM || "umaany",
+        amount: process.env.NEXT_PUBLIC_SWAP_IN_AMOUNT || "100000000", // base units
       },
       tokenOutMinAmount: process.env.NEXT_PUBLIC_SWAP_OUT_MIN || "1", // slippage floor
     };

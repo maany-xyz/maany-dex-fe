@@ -9,7 +9,7 @@ export default function CreatePoolButton({ className, onClick }) {
   const [submitting, setSubmitting] = useState(false);
 
   const chainId = useMemo(
-    () => process.env.NEXT_PUBLIC_CHAIN_ID || "maany-dex",
+    () => process.env.NEXT_PUBLIC_CHAIN_ID || "maanydex",
     []
   );
   const rpc = useMemo(() => process.env.NEXT_PUBLIC_RPC || "", []);
@@ -28,10 +28,10 @@ export default function CreatePoolButton({ className, onClick }) {
       return;
     }
 
-    const denomA = "stake"; //process.env.NEXT_PUBLIC_CREATE_POOL_DENOM_A;
+    const denomA = "umaany"; //process.env.NEXT_PUBLIC_CREATE_POOL_DENOM_A;
     const denomB = "tokenB"; //process.env.NEXT_PUBLIC_CREATE_POOL_DENOM_B;
-    const amountA = "10000"; //process.env.NEXT_PUBLIC_CREATE_POOL_AMOUNT_A;
-    const amountB = "10000"; //process.env.NEXT_PUBLIC_CREATE_POOL_AMOUNT_B;
+    const amountA = "10000000000"; //process.env.NEXT_PUBLIC_CREATE_POOL_AMOUNT_A;
+    const amountB = "10000000000"; //process.env.NEXT_PUBLIC_CREATE_POOL_AMOUNT_B;
     const weightA = process.env.NEXT_PUBLIC_CREATE_POOL_WEIGHT_A || "50";
     const weightB = process.env.NEXT_PUBLIC_CREATE_POOL_WEIGHT_B || "50";
 
@@ -46,7 +46,7 @@ export default function CreatePoolButton({ className, onClick }) {
     try {
       await window.keplr.enable(chainId);
       const signer = await window.keplr.getOfflineSignerAuto(chainId);
-      console.log("until here clear.");
+      console.log("until here clear.", gasPrice);
       const res = await createPool({
         rpc,
         signer,

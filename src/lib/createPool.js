@@ -15,7 +15,7 @@ export async function createPool({
   gasPrice,
 }) {
   const { registry, aminoTypes } = await getSigningOsmosisClientOptions();
-  console.log("in registry with: ", registry, aminoTypes, rpc, signer);
+  console.log("in registry with: ", gasPrice);
 
   try {
     const client = await SigningStargateClient.connectWithSigner(rpc, signer, {
